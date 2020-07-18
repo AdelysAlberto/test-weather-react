@@ -80,9 +80,14 @@
     .image-responsive {
         width: 100%;
     }
+    .bg-card {
+        padding-top: 5px !important;
+    }
     .title-sun {
         & img{
-            width: 100px;
+            width: 140px;
+            height: 140px;
+            padding: 0;
         }
     }
     

@@ -4,12 +4,10 @@ import endpoints from "./endpoints";
 const apiRequest = {
     endpoints,
     get: async function (options) {
-        const params = {
-            ...options,
-            url: this.decodeURL(options.url)
-        };
+        const { url, ...params } = options;
+        const param = Object.values(params)[0] || "";
         return new Promise((resolve, reject) => {
-            axios.get(params.url)
+            axios.get(`${this.decodeURL(url)}/${param}`)
                 .then(res => {
                     resolve(res);
                 })
@@ -40,10 +38,8 @@ const apiRequest = {
     },
     decodeURL (url) {
         let endpoint = endpoints[url[0]];
-        console.log(endpoint);
         if (url.length > 1) {
             const params = url.filter((param, index) => index !== 0);
-            console.log(params);
             const format = require("string-template");
             endpoint = format(endpoint, params);
         }

@@ -1,19 +1,25 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Header from "../../../shared/Header";
 import Search from "../../../shared/Search";
 import Current from "../../../component/Current";
 import Forecast from "../../../component/Forecast";
-import apiRequest from "../../../api";
+
+import { getLocationAction } from "../../../redux/actions/location-action";
+import { getCurrentWeatherAction } from "../../../redux/actions/current-action";
+import { getForecastWeatherAction } from "../../../redux/actions/forecast-action";
+
 const Login = () => {
-    const [ defaultLocation, setDefaultLocation ] = useState("");
-    useEffect(() => {
-        apiRequest.get({ url: [ "MY_LOCATION" ] }).then(result => setDefaultLocation(result.data.city));
-    }, [ defaultLocation ]);
+    const dispatch = useDispatch();
+
+    dispatch(getLocationAction());
+    dispatch(getCurrentWeatherAction());
+    dispatch(getForecastWeatherAction());
+
     return (
         <div className="background container-fluid pb-4 ">
             <Header />
-            <Search defaultLocation={defaultLocation} />
+            <Search />
             <Current />
             <Forecast />
         </div>

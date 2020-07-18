@@ -1,0 +1,3 @@
+export const CURRENT_BEGIN = "CURRENT_BEGIN";
+export const CURRENT_SUCCESS = "CURRENT_SUCCESS";
+export const CURRENT_ERROR = "CURRENT_ERROR";

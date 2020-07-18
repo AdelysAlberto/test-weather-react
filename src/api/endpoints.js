@@ -1,6 +1,6 @@
 const endpoints = {
     CURRENT: "current",
-    FORECAST: "forecat",
+    FORECAST: "forecast",
     MY_LOCATION: "location"
 };
 

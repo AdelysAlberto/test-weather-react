@@ -23,6 +23,7 @@ module.exports = {
   ],
   rules: {
     'react/jsx-uses-react': 1,
+    "react/prop-types": "off",
     'react/jsx-uses-vars': 1,
     "no-console": "off",
     'no-constant-condition': 2,
