@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { kelvinToCelsius } from "../../utils/functions";
+import { kelvinToCelsius, setIconWeather } from "../../utils/functions";
 import { useSelector } from "react-redux";
 
 import Cities from "../Cities";
@@ -8,9 +8,10 @@ import { countries as COUNTRY } from "../../utils/consts";
 
 const Current = () => {
     const [ temp, setTemp ] = useState("");
+    const [ imageWeather, setImageWeather ] = useState(imageDefault);
     const [ description, setDescription ] = useState("");
-    const [ icon, setIcon ] = useState(imageDefault);
     const defaultCurrent = useSelector(state => state.current.data);
+
     useEffect(() => {
         loadData();
     }, [ defaultCurrent ]);
@@ -18,11 +19,10 @@ const Current = () => {
     const loadData = () => {
         if (defaultCurrent.main) {
             const temperature = kelvinToCelsius(defaultCurrent.main.temp);
-            const image = defaultCurrent.weather[0].icon;
-            const urlIcon = `${process.env.REACT_APP_URI_ICON_WEATHER}${image}@4x.png`;
+            const image = setIconWeather(defaultCurrent.weather[0].icon);
             setTemp(temperature);
+            setImageWeather(image);
             setDescription(defaultCurrent.weather[0].description);
-            setIcon(urlIcon || imageDefault);
         }
     };
 
@@ -33,7 +33,7 @@ const Current = () => {
                     <div className="bg-card p-4">
                         <div className="row h-100">
                             <div className="col-sm-12 col-lg-4 title-sun d-flex justify-content-center align-content-center">
-                                <img src={icon} />
+                                <img src={ imageWeather } />
                             </div>
                             <div className="col-sm-12 col-lg-8 d-flex flex-column justify-content-center mt-3 mt-lg-1">
                                 <div>Today</div>
@@ -51,7 +51,7 @@ const Current = () => {
                         </div>
                     </div>
                 </div>
-                <Cities />
+                <Cities country={ COUNTRY[defaultCurrent.country] }/>
             </div>
         </div>
     );

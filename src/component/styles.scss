@@ -1,0 +1,26 @@
+.forecast-card {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 20px;
+    padding: 5px 10px;
+    min-width: 200px;
+}
+.icon-weather {
+    img {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .forecast-card {
+      min-width: 150px;
+    }
+    .icon-weather {
+        img {
+            width: 100px;
+        }
+    }
+    
+  }

@@ -7,15 +7,21 @@ export function getForecastWeatherAction (city = null) {
         api.get({ url: [ "FORECAST" ], city })
             .then(res => {
                 if (res.status === 200) {
-                    dispatch(forecastWeatherSuccess(res.data));
+                    // we need to clean the response, the forecast that arrives with today's date
+                    const myDate = new Date();
+                    const filtered = res.data.weather.filter(items => {
+                        const date = new Date(items.date);
+                        return myDate.getDate() !== date.getDate();
+                    });
+                    dispatch(forecastWeatherSuccess({ city: res.data.city, weather: filtered }));
                 } else {
                     dispatch(forecastWeatherError());
                     return false;
                 }
             })
             .catch((err) => {
-                if (err.response.status === 400 || err.response.status === 401) {
-                    dispatch(forecastWeatherError(err.response.data.message));
+                if (err) {
+                    dispatch(forecastWeatherError(err));
                 } else {
                     dispatch(forecastWeatherError(err));
                 }

@@ -1,41 +1,29 @@
 import React from "react";
+import moment from "moment";
+import { useSelector } from "react-redux";
+
+import "../styles.scss";
+
+import { kelvinToCelsius, setIconWeather } from "../../utils/functions";
 
 const Forecast = () => {
+    const forecast = useSelector(state => state.forecast.data);
     return (
         <div className="container mt-1">
             <div className="row mt-3 mt-lg-0">
-                <div className="col-6 col-md-3 mb-2">
-                    <div className="bg-card d-flex flex-column justify-content-around align-items-center">
-                        <div className="title-city">Saturday</div>
-                        <div className="icon-weather"> <img src={require("../../assets/sun.svg")}/> </div>
-                        <div className="title-city">22º</div>
-                        <div className="title-clouds">clear sky</div>
-                    </div>
-                </div>
-                <div className="col-6 col-md-3 mb-2">
-                    <div className="bg-card d-flex flex-column justify-content-around align-items-center">
-                        <div className="title-city">Saturday</div>
-                        <div className="icon-weather"> <img src={require("../../assets/sun.svg")}/> </div>
-                        <div className="title-city">22º</div>
-                        <div className="title-clouds">clear sky</div>
-                    </div>
-                </div>
-                <div className="col-6 col-md-3 mb-2">
-                    <div className="bg-card d-flex flex-column justify-content-around align-items-center">
-                        <div className="title-city">Saturday</div>
-                        <div className="icon-weather"> <img src={require("../../assets/sun.svg")}/> </div>
-                        <div className="title-city">22º</div>
-                        <div className="title-clouds">clear sky</div>
-                    </div>
-                </div>
-                <div className="col-6 col-md-3 mb-2">
-                    <div className="bg-card d-flex flex-column justify-content-around align-items-center">
-                        <div className="title-city">Saturday</div>
-                        <div className="icon-weather"> <img src={require("../../assets/sun.svg")}/> </div>
-                        <div className="title-city">22º</div>
-                        <div className="title-clouds">clear sky</div>
-                    </div>
-                </div>
+                { forecast.weather && forecast.weather.map((weather, key) => {
+                    return (
+                        <div className="d-flex flex-row mb-2" key={key}>
+                            <div className="bg-card forecast-card">
+                                <div className="title-city">{ moment(weather.date).format("dddd") }</div>
+                                <div className="icon-weather"> <img src={setIconWeather(weather.body.icon)}/> </div>
+                                <div className="title-city">{ kelvinToCelsius(weather.body.temp) }</div>
+                                <div className="title-clouds">{ weather.body.description }</div>
+                            </div>
+                        </div>
+                    );
+                }) }
+
             </div>
         </div>
     );

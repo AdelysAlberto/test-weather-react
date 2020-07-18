@@ -18,7 +18,7 @@ const Login = () => {
 
     return (
         <div className="background container-fluid pb-4 ">
-            <Header />
+            <Header id="header" />
             <Search />
             <Current />
             <Forecast />

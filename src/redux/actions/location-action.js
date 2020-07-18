@@ -14,8 +14,8 @@ export function getLocationAction (location = null) {
                 }
             })
             .catch((err) => {
-                if (err.response.status === 400 || err.response.status === 401) {
-                    dispatch(locationWeatherError(err.response.data.message));
+                if (err) {
+                    dispatch(locationWeatherError(err));
                 } else {
                     dispatch(locationWeatherError(err));
                 }

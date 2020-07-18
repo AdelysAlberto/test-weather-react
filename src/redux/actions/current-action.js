@@ -14,8 +14,8 @@ export function getCurrentWeatherAction (city) {
                 }
             })
             .catch((err) => {
-                if (err.response.status === 400 || err.response.status === 401) {
-                    dispatch(currentWeatherError(err.response.data.message));
+                if (err) {
+                    dispatch(currentWeatherError(err));
                 } else {
                     dispatch(currentWeatherError(err));
                 }
