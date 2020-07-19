@@ -3,7 +3,6 @@ import moment from "moment";
 import { useSelector } from "react-redux";
 
 import "../styles.scss";
-
 import { kelvinToCelsius, setIconWeather } from "../../utils/functions";
 
 const Forecast = () => {

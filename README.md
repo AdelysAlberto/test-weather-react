@@ -25,11 +25,13 @@ To build version
 `npm build`  
 
 ---
-#### before start, configure enviroment (.env)
+#### before start, configure enviroment (.env) with this: 
 
 `
-URI_GET_IP=https://api.ipify.org?format=jsonp?callback=?
-URI_ICON_WEATHER=https://openweathermap.org/img/wn/04n@4x.png
+REACT_APP_URI_HOST="http://localhost:9091/v1/"
+REACT_APP_URI_GET_IP=https://api.ipify.org?format=jsonp?callback=?
+REACT_APP_URI_ICON_WEATHER="https://openweathermap.org/img/wn/"
+
 `
 
 

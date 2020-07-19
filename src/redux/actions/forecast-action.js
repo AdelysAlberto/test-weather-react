@@ -9,10 +9,18 @@ export function getForecastWeatherAction (city = null) {
                 if (res.status === 200) {
                     // we need to clean the response, the forecast that arrives with today's date
                     const myDate = new Date();
+
+                    // filter forecast less the today forecast
                     const filtered = res.data.weather.filter(items => {
                         const date = new Date(items.date);
                         return myDate.getDate() !== date.getDate();
                     });
+
+                    // openWeather returns more than 5 days, I need in this TEST only 5 days to show in the view
+                    if (filtered.length) {
+                        filtered.pop();
+                    };
+
                     dispatch(forecastWeatherSuccess({ city: res.data.city, weather: filtered }));
                 } else {
                     dispatch(forecastWeatherError());

@@ -13,6 +13,14 @@
     }
 }
 
+.searchme {
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+        color: #ccc;
+    }
+}
+
 @media screen and (max-width: 820px) {
     .forecast-card {
       min-width: 150px;

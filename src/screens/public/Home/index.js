@@ -12,9 +12,12 @@ import { getForecastWeatherAction } from "../../../redux/actions/forecast-action
 const Login = () => {
     const dispatch = useDispatch();
 
-    dispatch(getLocationAction());
-    dispatch(getCurrentWeatherAction());
-    dispatch(getForecastWeatherAction());
+    // when load the component dispatch all actions
+    useEffect(() => {
+        dispatch(getLocationAction());
+        dispatch(getCurrentWeatherAction());
+        dispatch(getForecastWeatherAction());
+    }, []);
 
     return (
         <div className="background container-fluid pb-4 ">

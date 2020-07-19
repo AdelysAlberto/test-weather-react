@@ -16,6 +16,7 @@ const Current = () => {
         loadData();
     }, [ defaultCurrent ]);
 
+    // function to load data in component, apply transformation
     const loadData = () => {
         if (defaultCurrent.main) {
             const temperature = kelvinToCelsius(defaultCurrent.main.temp);
