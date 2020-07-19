@@ -1,0 +1,94 @@
+.home > form  label {
+    color: #fff;
+}
+
+.title-city {
+    color: #fff;
+    font-weight: 600;
+    font-size: calc(0.8em + 1vw);
+}
+.title-sub-cities {
+    color: #fff;
+    font-size: 0.8em;
+}
+
+.title-temperature {
+    font-size: calc(0.5em + 1vw);
+    & span {
+        margin-left: 10px;
+        font-size: calc(0.6em + 1vw);
+    }
+}
+
+.title-clouds {
+    font-style: italic;
+    color: #ccc;
+    font-weight: 600;
+    font-size: calc(0.4em + 1vw);
+}
+
+.title-sun {
+    font-size: calc(0.5em + 1vw);
+    & img{
+        width: 400px;
+    }
+}
+
+.icon-sun {
+    margin-right: 30px;
+    width: calc(4em + 1vw);
+    height: auto;
+}
+
+
+.btnLogin {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: #fff;
+    border-color:  $color-lgray;
+    background-color: $color-lgray;
+}
+
+.btnLogin:hover, .btnLogin:focus, .btnLogin:active {
+    color: #fff;
+    border-color:  $color-gray;
+    background-color: $color-gray;
+}
+.icon-show {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.image-responsive {
+    width: 40%;
+}
+
+
+ @media screen and (max-width: 820px) {
+    .image-responsive {
+        width: 100%;
+    }
+    .bg-card {
+        padding-top: 5px !important;
+    }
+    .title-sun {
+        & img{
+            width: 140px;
+            height: 140px;
+            padding: 0;
+        }
+    }
+    
+}
