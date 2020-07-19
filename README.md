@@ -1,6 +1,20 @@
 # test-weather-react
 
-API UI REACT TO GET CURRENT WEATHER AND FORECAST
+This app is to check the weather and get the forecast for the next 5 days, and check additional 5 additional cities. 
+
+## used libraries
+* axios
+* bootstrap
+* moment
+* node-sass
+* react-bootstrap
+* redux
+
+## APP ONLINE HEROKU (RESPONSIVE)
+[Try me](https://weather-adalbeca-react.herokuapp.com/ "APP IN HEROKU" )
+
+## API REST ONLINE HEROKU
+[Try me](https://wather-adalbeca.herokuapp.com/v1 "API IN HEROKU" )
 
 ## Installation and Setup Instructions
 
@@ -12,10 +26,6 @@ Installation:
 
 `npm install`  
 
-To Run Test Suite:  
-
-`npm test`  
-
 To Start Server Dev Mode:
 
 `npm start`  
@@ -23,6 +33,12 @@ To Start Server Dev Mode:
 To build version 
 
 `npm build`  
+
+To start build version
+-- to run localhost server add global server 
+` yarn global add serve `
+-- later execute
+`npm server`
 
 ---
 #### before start, configure enviroment (.env) with this: 

@@ -15,7 +15,7 @@ const Forecast = () => {
                         <div className="d-flex flex-row mb-2" key={key}>
                             <div className="bg-card forecast-card">
                                 <div className="title-city">{ moment(weather.date).format("dddd") }</div>
-                                <div className="icon-weather"> <img src={setIconWeather(weather.body.icon)}/> </div>
+                                <div className="icon-weather"> <img alt="forecast" src={setIconWeather(weather.body.icon)}/> </div>
                                 <div className="title-city">{ kelvinToCelsius(weather.body.temp) }</div>
                                 <div className="title-clouds">{ weather.body.description }</div>
                             </div>

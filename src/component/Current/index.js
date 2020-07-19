@@ -34,7 +34,7 @@ const Current = () => {
                     <div className="bg-card p-4">
                         <div className="row h-100">
                             <div className="col-sm-12 col-lg-4 title-sun d-flex justify-content-center align-content-center">
-                                <img src={ imageWeather } />
+                                <img alt="forecast" src={ imageWeather } />
                             </div>
                             <div className="col-sm-12 col-lg-8 d-flex flex-column justify-content-center mt-3 mt-lg-1">
                                 <div>Today</div>
